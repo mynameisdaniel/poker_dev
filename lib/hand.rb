@@ -29,7 +29,27 @@ class Hand
 
   end
 
+  def has_straight?
+
+  end
+
   def has_flush?
     cards.map(&:suit).uniq.size == 1
+  end
+
+  def has_full_house?
+
+  end
+
+  def has_four_of_a_kind?
+
+  end
+
+  def has_straight_flush?
+
+  end
+
+  def <=>(other_hand)
+    raise NotImplementedError
   end
 end

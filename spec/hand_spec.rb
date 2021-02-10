@@ -48,4 +48,30 @@ describe Hand do
       expect(hand_2.has_flush?).to be_falsy
     end
   end
+
+  describe '<=>' do
+    let(:ace_jack_hand) do 
+      Hand.new([
+        Card.new('spades', 'ace'),
+        Card.new('hearts', 'two'),
+        Card.new('diamonds', 'five'),
+        Card.new('clubs', 'jack'),
+        Card.new('spades', 'seven')
+      ])
+    end
+
+    let(:ace_queen_hand) do 
+      Hand.new([
+        Card.new('hearts', 'ace'),
+        Card.new('hearts', 'queen'),
+        Card.new('spades', 'four'),
+        Card.new('spades', 'three'),
+        Card.new('diamonds', 'two')
+      ])
+    end
+
+    it 'ace queen hand beats ace jack hand' do
+      expect(ace_queen_hand <=> ace_queen_hand).to eq(1)
+    end
+  end
 end
